@@ -3,7 +3,7 @@
     "name": "Catch Pokemon PWA",
     "icons": [
         {
-            "src": "./pokeball.png",
+            "src": "/pokeball.png",
             "type": "image/png",
             "sizes": "1024x1024",
             "purpose": "any maskable"
