@@ -6,7 +6,6 @@ export const PokemonContext = createContext();
 const PokemonProvider = (props) => {
     const [pokeData, dispatch] = useReducer(pokeReducer, {
         listPokemon : [],
-        myPokemon : [],
         limit : 1,
     });
 

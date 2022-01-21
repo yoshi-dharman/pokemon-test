@@ -6,18 +6,6 @@ export const pokeReducer = (state, action) => {
                 limit : action.limit,
                 listPokemon : [...state.listPokemon , ...action.result]
             };
-
-        case 'ADD_MY_POKEMON' :
-            return {
-                ...state,
-                myPokemon : [...state.myPokemon , [action.result.data]]
-            };
-
-        case 'RELEASE_MY_POKEMON' : 
-            return {
-                ...state,
-                myPokemon : action
-            }
         
         default : 
             return state;    
