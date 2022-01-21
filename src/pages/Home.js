@@ -34,7 +34,8 @@ function Home() {
     }, [isFetching, pokeData]);
 
     useEffect(() => {
-        let myPokemonLocal = JSON.parse(localStorage.myPokemon);
+        
+        let myPokemonLocal = localStorage.myPokemon ? JSON.parse(localStorage.myPokemon) : [];
         setMyPokemon(myPokemonLocal);
         
         if(isFetching && fetchStatus){ 

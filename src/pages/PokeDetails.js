@@ -41,7 +41,7 @@ function PokeDetails() {
     const [alert, setAlert] = useState(false);
 
     useEffect(() => {
-        let myPokemonLocal = JSON.parse(localStorage.myPokemon);
+        let myPokemonLocal = localStorage.myPokemon ? JSON.parse(localStorage.myPokemon) : [];
         setMyPokemon(myPokemonLocal);
         setIsFetching(true);
         GetPokemonDetailsData(params.name)

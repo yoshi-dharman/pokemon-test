@@ -20,13 +20,14 @@ const ListBtn = styled.div`
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
 }
 ${tw`bg-red-400 py-1 px-2 rounded-full text-center text-white w-auto hover:scale-125`}`;
+const NothingText = tw(ListText)`text-white`;
 
 function MyPoke() {
     const [myPokemon, setMyPokemon] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        let myPokemonLocal = JSON.parse(localStorage.myPokemon);
+        let myPokemonLocal = localStorage.myPokemon ? JSON.parse(localStorage.myPokemon) : [];
         setMyPokemon(myPokemonLocal);
         setIsLoading(false);
 
@@ -59,7 +60,10 @@ function MyPoke() {
                             </ListText>
                             <ListBtn onClick={() => releasePokemon(items.nickname)}>Release</ListBtn>
                         </ListItem>
-                    ))};
+                    ))}
+                    { myPokemon.length === 0 &&
+                        <NothingText>Nothing here....</NothingText>
+                    }
                 </ListContainer>
             </Card>
             </>
